@@ -1,0 +1,143 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.contact-list{
+    &__title{
+       opacity: 0.3;
+    }
+
+    .contact-link{
+        font-size: rem(16);
+        line-height: 1.5;
+        @include transition(all, 0.3s, ease);
+        @include breakpoint-md{
+            font-size: rem(18);
+        }
+        @include breakpoint-xxl{
+            font-size: rem(20);
+        }
+        &:hover{
+            cursor: pointer;
+            color:$clr-secondary;
+        }
+    }
+}
+
+.hero-contact-inner{
+    max-width: rem(1400);
+    margin-inline:auto;
+    padding:em(32) em(16);
+    @include breakpoint-sm{
+        padding:em(40) em(32);
+    }  
+    @include breakpoint-md{
+        padding:em(44) em(44);
+    }  
+    @include breakpoint-lg{
+        padding:em(48) em(48);
+    }  
+    @include breakpoint-xl{
+        padding:em(56) em(56);
+    }  
+    @include breakpoint-xxl{
+        padding:em(64) em(64);
+    }  
+}
+
+
+// ========
+.steps {
+    &__grid {
+        display: grid;
+        grid-template-columns:1fr;
+        gap:rem(64);
+
+        @include breakpoint-md{
+            grid-template-columns: repeat(3, 1fr);
+            gap:rem(40);
+        }
+        @include breakpoint-lg{
+            gap:rem(48);
+        }
+        @include breakpoint-xl{
+            gap:rem(56);
+        }
+        @include breakpoint-xxl{
+            gap:rem(64);
+        }
+    }
+}
+
+.steps-card {
+    display: flex;
+    flex-direction: column;
+
+    &__top{
+        display: flex;
+        align-items: center;
+        margin-bottom: rem(24);
+        @include breakpoint-md{
+             margin-bottom: rem(28);
+        }
+        @include breakpoint-lg{
+             margin-bottom: rem(32);
+        }
+        @include breakpoint-xl{
+             margin-bottom: rem(36);
+        }
+    }
+    &__step {
+        border-radius: 10px;
+        background:$clr-primary;
+        color: $clr-white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem(14);
+        flex-shrink: 0;
+        padding:em(14) em(32);
+        @include breakpoint-md{
+            padding-inline:em(36);
+        }
+        @include breakpoint-lg{
+            padding-inline:em(40);
+        }
+        @include breakpoint-xl{
+            padding-inline:em(44);
+        }
+        @include breakpoint-xxl{
+            padding-inline:em(48);
+        }
+    }
+    &__line {
+        flex: 1;
+        height: 1px;
+        margin-left: 45px;
+        background-image: linear-gradient(
+            to right,
+            #2b2b2b 35%,
+            transparent 0%
+        );
+        background-size: 6px 1px;
+        background-repeat: repeat-x;
+        display: none;
+
+        @include breakpoint-lg{
+            display: block;
+            margin-left: 70px;
+        }
+    }
+    &__content{
+        max-width: 40ch;
+    }
+}
+
+.map-wrapper{
+    iframe{
+        aspect-ratio: 16/12;
+    }
+}

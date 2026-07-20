@@ -1,0 +1,525 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+$height: calc(100vh - 84px);
+
+.hero{
+    position: relative;
+    z-index: 1;
+    &--home{
+        min-height:100vh;
+    }
+
+    &__contentWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &--home{
+            position: absolute;
+            bottom: 80px;
+        }
+    }
+    &__about-container{
+        max-width: rem(1440);
+        margin-inline: auto;
+    }
+    &__content{
+        max-width: 60ch;
+    }
+}
+
+.google-review{
+    &__content{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        height: 100%;
+        margin-inline:auto;
+        max-width: 42ch;
+        padding-inline:16px;
+    }
+}
+
+.review-content{
+    font-size: 18px;
+    line-height:1.25;
+    font-family:$ff-primary;
+    color:$clr-white;
+    @include breakpoint-md{
+        font-size: rem(20);
+    }
+    @include breakpoint-xl{
+        font-size:rem(22);
+    }
+    @include breakpoint-xxl{
+        font-size:rem(24);
+    }
+}
+
+.counter-container{
+    padding-inline:20px;
+    @include breakpoint-sm{
+        display: grid;
+         place-items: center;
+    }
+}
+
+.counter{
+    &__wrapper{
+        padding-block:rem(48);
+        @include breakpoint-md{
+            padding-block: rem(40);
+        }
+        @include breakpoint-lg{
+            padding-block: rem(36);
+        }
+        @include breakpoint-xl{
+            padding-block: rem(32);
+        }
+    }
+    &__value{
+        font-size: rem(32);
+        line-height: 1.25;
+        font-family:$ff-primary;
+        color:$clr-white;
+        position: relative;
+    
+        @include breakpoint-sm{
+            font-size:rem(36);
+        }
+        @include breakpoint-lg{
+            font-size:rem(40);
+        }
+        @include breakpoint-xl{
+            font-size:rem(44);
+        }
+        // @include breakpoint-xl{
+        //     font-size:rem(32);
+        // }
+        // @include breakpoint-xxl{
+        //     font-size:rem(36);
+        // }
+        // @include breakpoint-xxxl{
+        //     font-size:rem(40);
+        // }
+    
+        &::after{
+            content:attr(data-postfix);
+            color:$clr-white;
+        }
+    }
+}
+
+.figure-wrapper{
+    position:relative;
+    z-index: 1;
+
+    .img-overlay-text{
+        position: absolute;
+        bottom:16px;
+        left:0;
+        width:100%;
+        color:$clr-white;
+        font-family: $ff-primary;
+        text-transform: uppercase;
+        font-size:rem(28);
+        text-align: center;
+        @include breakpoint-sm{
+          font-size:rem(32);  
+        }
+        @include breakpoint-md{
+          font-size:rem(36);  
+        }
+        @include breakpoint-lg{
+          font-size:rem(40);  
+        }
+        @include breakpoint-xl{
+          font-size:rem(44);  
+        }
+        @include breakpoint-xxl{
+          font-size:rem(64);  
+        }
+        @include breakpoint-xxxl{
+          font-size:rem(72);  
+        }
+    }
+}
+
+.services-card{
+    figure{
+        position: relative;
+    }
+    &__title{
+        background-color: $clr-primary;
+        color:$clr-white;
+        font-family: $ff-primary;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        gap:rem(16);
+        font-size: rem(20);
+        padding-block:rem(16);
+        text-align: center;
+        text-transform: capitalize;
+        @include breakpoint-lg{
+            padding-block:rem(18);
+        }
+    }
+}
+
+.blogs{
+    &__body{
+        max-width: 28rem;
+        // padding-inline:20px;
+
+        small{
+            font-size: rem(12);
+        }
+    }
+    .blog-title{
+        font-size: rem(18);
+        line-height: 1.4;
+        @include breakpoint-xxl{
+            font-size: rem(20);
+        }
+    }
+
+    &__link{
+        color:$clr-primary;
+        @include transition(color, 0.25s, ease);
+        &:hover{
+            color:$clr-secondary;
+        }
+    }
+}
+
+.testimonial{
+    // &__container{
+    //     max-width: rem(1320);
+    //     margin-inline:auto;
+    // }
+    &__card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #DCDCDC;
+        border:1px solid #b3b3b3;
+        padding:em(28) em(24);
+        @include breakpoint-sm{
+            padding:em(32) em(28);
+        }
+        @include breakpoint-md{
+            padding:em(34) em(30);
+        }
+        @include breakpoint-lg{
+            padding:em(36) em(32);
+        }
+        @include breakpoint-xl{
+            padding:em(40) em(34);
+        }
+    }
+    &__text{
+        font-size: rem(18);
+        line-height: 1.25;
+        color:$clr-primary;
+        font-family: $ff-primary;
+        @include breakpoint-xxl{
+            font-size: rem(20);
+        }
+    }
+
+    // .name{
+    //     font-size: rem(18);
+    //     line-height: 1.25;
+    //      color:$clr-primary;
+    //     font-family: $ff-secondary;
+    //     @include breakpoint-sm{
+    //        font-size: rem(20); 
+    //     }
+    //     @include breakpoint-md{
+    //        font-size: rem(22); 
+    //     }
+    //     @include breakpoint-lg{
+    //        font-size: rem(24); 
+    //     }
+    // }
+}
+
+.work{
+    &__categories-list{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap:rem(10);
+        row-gap:rem(6);
+        @include breakpoint-md{
+            gap:rem(12);
+        }
+        @include breakpoint-xl{
+            gap:rem(14);
+        }
+        li{
+            font-size: rem(12);
+            font-family: $ff-secondary;
+            line-height: 1.45;
+            padding:6px 12px;
+            border:1px solid $clr-black;
+            border-radius:4px;
+        }
+    }
+
+    &__title{
+        color:$clr-primary;
+        @include transition(all, 0.25s, ease);
+        &:hover{
+            text-decoration: underline;
+            color:$clr-secondary;
+        }
+    }
+}
+
+.trusted-cta{
+    &__list{
+        max-width: rem(400);
+        @include breakpoint-md{
+            margin-inline:auto;
+        }
+        li{
+            display: flex;
+            align-items: center;
+            gap:rem(16);
+            font-size:rem(18);
+            line-height: 1.35;
+            margin-bottom: rem(24);
+            text-transform: capitalize;
+            @include breakpoint-xl{
+                font-size: rem(20);
+            }
+        }
+    }
+
+}
+
+.process{
+    &__container{
+        background-image: url("../../../assets/images/steps-bg.png");
+        background-color: $clr-primary;
+    }
+
+    &__left{
+        @include breakpoint-md{
+            max-width: 38rem;
+            // margin-inline:auto;
+        }
+    }
+
+    &__tag-box{
+        padding:5px 16px;
+        background-color: $clr-white;
+        font-size: 14px;
+        color:$clr-primary;
+        border-radius:8px;
+        display: inline-flex;
+        margin-bottom:10px;
+    }
+    &__list{
+        color:$clr-white;
+    }
+}
+
+// ======
+
+.process-item {
+    display: grid;
+    grid-template-columns:rem(60) 1fr;
+    column-gap:rem(40);
+    position: relative;
+
+    &:not(:last-child) {
+        padding-bottom:rem(32);
+    }
+
+    .number {
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        span {
+            color:$clr-white;
+            font-size: rem(16);
+            opacity: .9;
+            z-index: 2;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 36px;
+            bottom: -24px;
+            width: 2px;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(255,255,255,.35) 45%,
+                transparent 0%
+            );
+
+            background-position: left;
+            background-size: 2px 12px;
+            background-repeat: repeat-y;
+        }
+    }
+
+    &:last-child {
+        .number::after {
+            display: none;
+        }
+    }
+
+    .content {
+        padding-bottom:rem(32);
+        border-bottom: 1px solid rgba(255,255,255,.15);
+        h5 {
+            color: $clr-secondary;
+            @include transition(all, 0.35s, ease);
+        }
+        p {
+            color:$clr-white;
+            line-height: 1.25;
+            margin-top: 6px;
+        }
+    }
+
+    &:last-child {
+        .content {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    &:hover {
+        .content h5 {
+            // transform: translateX(6px);
+            color:$clr-secondary;
+        }
+        .number span {
+            color:$clr-secondary;
+        }
+    }
+}
+
+/* Tablet */
+
+@media (max-width:768px){
+    .process-section{
+        padding:70px 20px;
+    }
+    .process-item{
+        grid-template-columns:50px 1fr;
+        column-gap:25px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:576px){
+    .process-section{
+        padding:50px 18px;
+    }
+    .process-item{
+        grid-template-columns:40px 1fr;
+        column-gap:18px;
+        &:not(:last-child){
+            padding-bottom:40px;
+        }
+
+        .number{
+            span{
+                font-size:16px;
+            }
+            &::after{
+                top:30px;
+                bottom:-40px;
+            }
+        }
+        .content{
+            padding-bottom:20px;
+        }
+    }
+}
+
+
+
+
+
+
+
+// ===========
+.about-us{
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+.blog-tag{
+    padding:em(8) em(16);
+    @include radius(8px);
+    border:1px solid $clr-gray-darker;
+}
+
+.cta{
+    &__container{
+        margin-inline:0;
+        @include breakpoint-md{
+            margin-inline:auto;
+        }
+    }
+    &__inner{
+        position: relative;
+        min-height: rem(420);
+        @include breakpoint-sm{
+           min-height: rem(480);  
+        }
+        @include breakpoint-md{
+           min-height: rem(540);  
+        }
+        @include breakpoint-lg{
+           min-height: rem(600);  
+        }
+        @include breakpoint-xl{
+           min-height: rem(660);  
+        }
+    }
+    &__content-wrapper{
+        position: absolute;
+        bottom: rem(64);
+        left:rem(12);
+        @include breakpoint-sm{
+            bottom: rem(72);
+            left:rem(32);
+        }
+        @include breakpoint-md{
+            bottom: rem(80);
+            left:rem(48);
+        }
+        @include breakpoint-lg{
+            bottom: rem(96);
+            left:rem(64);
+        }
+        @include breakpoint-xl{
+            bottom: rem(112);
+            left:rem(80);
+        }
+        @include breakpoint-xxl{
+            bottom: rem(144);
+            left:rem(96);
+        }
+        @include breakpoint-xxxl{
+            left:rem(112);
+        }
+    }
+}

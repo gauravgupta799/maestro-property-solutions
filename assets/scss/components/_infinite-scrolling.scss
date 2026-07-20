@@ -1,0 +1,67 @@
+@use "../abstract/colors" as *;
+  
+$animation-speed: 25s;
+
+.logo-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 16px 0;
+    background-color:$clr-primary; 
+    position: relative;
+
+    /* Gradient fade on edges */
+    &::before, &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 100%;
+        z-index: 2;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, #0f1115 0%, transparent 100%);
+    }
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, #0f1115 0%, transparent 100%);
+    }
+}
+
+
+.logo-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // width: calc(200px * 8); /* 200px per slide * total slides (original + duplicated) */
+    // animation: scroll  $animation-speed linear infinite;
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.logo-slide {
+    // width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:18px;
+    perspective: 100px;
+
+    .logo-text{
+        color:$clr-white;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+@keyframes scroll {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        transform: translateX(calc(-180px * 6)); /*Scroll exactly the width of original set*/
+        // transform: translateX(-100%);
+    }
+}

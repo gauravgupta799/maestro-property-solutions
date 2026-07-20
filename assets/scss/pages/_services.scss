@@ -1,0 +1,179 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+
+.services{
+    &__title{
+        display: flex;
+        align-items: center;
+        gap:rem(20);
+        
+    }
+
+    .circle{
+        width: 16px;
+        height: 16px;
+        background: $clr-secondary;
+        @include radius(50%);
+    }
+}
+
+
+// ============================
+.whats-included{
+    &__list{
+        li{
+            display: flex;
+            align-items: center;
+            gap:rem(20);
+            padding-block:em(16);
+            @include breakpoint-lg{
+                gap:rem(24);
+            }
+            @include breakpoint-xxl{
+                gap:rem(28);
+            }
+            &:not(:last-child){
+                border-bottom: 1px solid $clr-gray;
+            }
+            span{
+                font-size: rem(18);
+                line-height: 1.25;
+                font-family: $ff-primary;
+            }
+            .circle{
+                @include dimensions(rem(10), rem(10));
+                background: $clr-primary;
+                @include radius(50%);
+                @include breakpoint-lg{
+                    @include dimensions(rem(12), rem(12));
+                }
+            }
+        }
+    }
+    &__wrapper{
+        max-width: 30rem;
+    }
+}
+
+.process-steps {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    // flex-wrap: wrap;
+    row-gap:rem(48);
+    flex-direction: column;
+    @include breakpoint-sm{
+        flex-direction: row;
+    }
+}
+
+.process-steps-container{
+    @include breakpoint-lg{
+        max-width: 85%;
+        margin-inline:auto;
+    }
+}
+
+.process-line,
+.process-line-fill {
+    position: absolute;
+    top:88px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $clr-white;
+    z-index: 1;
+    @include transition(width, 0.5s, ease);
+    display: none;
+    @include breakpoint-md{
+       display: flex;
+    }
+}
+
+.process-line {
+    right: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.process-line-fill {
+    background:$clr-secondary;
+    width: 0%;
+    z-index: 2;
+}
+
+.process-step {
+    position: relative;
+    z-index: 3;
+    margin-inline:auto;
+    text-align: center;
+    flex-direction: column;
+    gap:rem(48);
+    @include breakpoint-md{
+        gap: rem(32);
+        flex-direction: row;
+        text-align: left;
+        margin-inline: unset;
+    }
+    &__content{
+        margin-top:rem(20);
+        max-width: 18rem;
+        @include breakpoint-sm{
+            margin-top:rem(24);
+        }
+        @include breakpoint-md{
+            margin-top:rem(28);
+        }
+        @include breakpoint-lg{
+            margin-top:rem(32);
+        }
+    }
+
+    .number {
+        font-size: rem(24);
+        line-height: 1.2;
+        font-family: $ff-secondary;
+        color: $clr-white;
+        @include breakpoint-md{
+            font-size: rem(28);
+        }
+        @include breakpoint-lg{
+            font-size: rem(32);
+        }
+        @include breakpoint-xl{
+            font-size: rem(36);
+        }
+        @include breakpoint-xxl{
+            font-size: rem(40);
+        }
+    }
+    .square {
+        @include dimensions(rem(18), rem(18));
+        background: $clr-secondary;
+        @include radius(50%);
+        margin-top: 32px;
+        display: none;
+        @include breakpoint-lg{
+            display: block;
+            margin-top: 36px;
+        }
+        @include breakpoint-xxl{
+            margin-top: 32px;
+        }
+    }
+
+    &--last{
+        background-color: $clr-primary;
+    }
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

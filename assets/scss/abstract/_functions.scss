@@ -1,0 +1,24 @@
+@use "sass:math";
+
+$browser-context: 16;
+$full-width:100%;
+
+
+// Convert pixel to rem
+@function rem($pixels, $context:$browser-context){
+    $result: math.div($pixels, $context) * 1rem;
+    @return $result;
+}
+
+// Convert pixel to em
+@function em($pixels, $context:$browser-context){
+    $result: math.div($pixels, $context) * 1em;
+    @return $result;
+}
+
+// Calculate Percentage of the screen
+@function calculatePercent($screenSize, $marginInline){
+    $totalMargin: $marginInline * 2;
+    $contentWidth: $screenSize - $totalMargin;
+    @return math.percentage(math.div($contentWidth, $screenSize));
+}

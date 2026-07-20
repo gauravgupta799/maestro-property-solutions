@@ -1,0 +1,252 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.article{
+  &__container{
+      max-width: 100rem;
+      margin-inline:auto;
+  }
+  &__content{
+    p{
+      line-height:2;
+      max-width: 85ch;
+    }
+    ul, ol{
+      li{
+        line-height: 2;
+        max-width: 84ch;
+      }
+    }
+  }
+
+  h2, h3, h4, h5, h6{
+    margin-bottom: 16px;
+  }
+
+  h2{
+    margin-top:96px;
+  }
+  h3{
+    margin-top: 56px;
+  }
+  h4{
+    margin-top: 48px;
+  }
+  h5{
+    margin-top:40px;
+  }
+
+  h2 + figure, h3 + figure, h4 + figure, h5 + figure{
+    margin-bottom: 32px;
+  }
+
+  .article-figure{
+    margin-block: 24px 40px;
+  }
+
+  ul, ol{
+    margin-block:24px;
+    margin-left: 32px;
+    li{
+      margin-bottom: 12px;
+    }
+  }
+
+  table{
+    margin-block:16px;
+    margin-bottom: rem(20);
+  }
+
+  &__blog-socials {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:rem(32);
+  }
+  &__footer{
+    figure{
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap:rem(32);
+      
+      @include breakpoint-lg{
+          flex-wrap: nowrap;
+      }
+    }
+  }
+
+  .footer-social-link{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:rem(16);
+    margin: 0;
+    li a{
+      width: rem(36);
+      height: rem(36);
+      @include radius(50%);
+      background: $clr-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0px;
+      @include transition(all, 0.3s, ease);
+      &:hover{
+        cursor: pointer;
+        background: $clr-secondary;
+      }
+    }
+  }
+}
+
+.author-info-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  figure{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:rem(24);
+  }
+}
+
+.author-figcaption{
+  max-width: 48rem;
+}
+
+
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+  margin-top:24px;
+}
+
+.responsive-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+  border: 1px solid $clr-gray-darker;
+  padding:em(16) em(28);
+  text-align: left;
+}
+
+// .responsive-table thead {
+//   // background-color: $clr-tertiary;
+// }
+
+.responsive-table a {
+  color: $clr-secondary;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: em(768)) {
+  .responsive-table table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table th,
+  .responsive-table td,
+  .responsive-table tr {
+    display: block;
+  }
+
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tr {
+    margin-bottom: rem(16);
+    border: 1px solid $clr-gray-darker;
+    padding: em(10);
+    @include radius(4px);
+    background: $clr-white;
+  }
+
+  .responsive-table td {
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 1px solid $clr-gray-darker;
+  }
+
+  .responsive-table td::before {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 45%;
+    padding-right: em(10);
+    white-space: nowrap;
+    font-weight: bold;
+    content: attr(data-label);
+  }
+}
+
+.text {
+  font-size: 0.5;
+  position: absolute;
+  color: $clr-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -24px;
+  opacity: 0;
+  transition-duration: .7s;
+  white-space: nowrap;
+  left: -8px;
+}
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 96px;
+  right: 32px;
+  width: rem(48);
+  height: rem(48);
+  background-color: $clr-primary;
+  border: none;
+  @include radius(50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  transition: opacity 0.3s ease;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+
+    .arrow-up{
+        animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    .text{
+        opacity: 1;
+        transition-duration: .7s;
+    }
+  }
+}
+
+.back-to-top.show {
+  display: block;
+}
+
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

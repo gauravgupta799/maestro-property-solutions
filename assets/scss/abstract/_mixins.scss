@@ -1,0 +1,142 @@
+@use "./fonts" as *;
+@use "./colors" as *;
+@use "./functions" as *;
+
+
+// Center An Element
+@mixin center($type:flex){
+    @if $type == flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }@else if $type == grid {
+        display: grid;
+        place-items: center;
+    }
+}
+
+// Text ellipsis for overflow
+@mixin text-ellipsis ($lines:1){
+    @if $lines == 1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }@else{
+        display: -webkit-box;
+        -webkit-line-clamp:$lines;
+        -webkit-box-orient:vertical;
+        overflow: hidden;
+    }
+}
+
+// Position Absolute
+@mixin pos-absolute($top:0, $right:0, $bottom:0, $left:0){
+    position: absolute;
+    top: $top;
+    right: $right;
+    left:$left;
+    bottom:$bottom;
+}
+
+// Absolute positioning
+@mixin absolute-position($x:true, $y:true){
+    position:absolute;
+    @if $x { left:50%; transform: translateX(-50%); }
+    @if $y { top:50%; transform: translateY(-50%); }
+}
+
+@mixin bg-cover{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin bg-img($img-url, $size:cover, $position-x:center, $position-y:center){
+    background-image: url($img-url);
+    background-size: $size;
+    background-position:$position-x $position-y;
+    background-repeat: no-repeat;
+}
+
+
+@mixin flex-center($type:horizontal){
+    display: flex;
+    @if $type == horizontal { justify-content: center; }
+    @if $type == vertical { align-items: center; } 
+}
+
+@mixin flex-direction($direction:row){
+    display: flex;
+    @if $direction == column {
+        flex-direction: column;
+    }@else{
+        flex-direction: row;
+    }
+}
+
+@mixin flex-space-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin center-through-position{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+
+@mixin full-dimensions{
+    width: 100%; height:100%;
+}
+
+@mixin dimensions($width, $height){
+    width: $width; height: $height;
+}
+
+@mixin radius($radius){
+    @if $radius == "round"{
+        border-radius: 50%;
+    }@else {
+        border-radius: $radius;
+    }
+}
+
+@mixin transition($property:all, $duration:0.25s, $timing:ease){
+    transition: $property $duration $timing;
+}
+
+@mixin transform($transform...){
+    transform:$transform;
+}
+
+@mixin relative-hidden{
+    position: absolute;
+    overflow: hidden;
+}
+
+@mixin font-heading{
+    font-family:$ff-primary;
+    text-transform: capitalize;
+    color:$clr-primary;
+    font-weight: normal;
+}
+
+@mixin font-body{
+    font-size: rem(16);
+    line-height: rem(24);
+    font-family:$ff-secondary;
+    color:$clr-black;
+}
+
+
+@mixin caret-down{
+    content:"";
+    position: absolute;
+    right: 1rem; top: 55%;
+    pointer-events: none;
+    border-left: 0.35rem solid transparent;
+    border-right: 0.35rem  solid transparent;
+    border-top: 0.35rem solid $clr-primary;
+}

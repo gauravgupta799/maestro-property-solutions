@@ -1,0 +1,146 @@
+/* 
+    Project's Name: Maestro Property Solution
+    Version: 1.0
+    Start Date: 14/07/2026
+    Designed By: YourHustler
+    Developer: Gaurav Gupta 
+    Framework: Bootstrap 5
+    Pre-proecessor: SCSS
+    Responsive: Yes(Mobile-First)
+    Tested On: Chrome, Firefox, Safari, Edge
+    Last Changes: 
+    Description: 
+    Update Log: Intial Layout Setup (Gaurav Gupta)
+*/
+
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+
+*{
+    padding: 0; margin: 0; box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+html, body{
+    min-height: 100%;
+    height: auto;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width:rem(8);
+}
+
+$radius:rem(8);
+
+::-webkit-scrollbar-track {
+    background-color: $clr-white;
+    border-radius:$radius;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $clr-black; 
+    border-radius:$radius;
+}
+
+
+table::-webkit-scrollbar{
+    width: 100%;
+    height: 4px;
+}
+
+table::-webkit-scrollbar-track{
+    background-color: #fff;
+    border-radius:4px;
+}
+
+table::-webkit-scrollbar-thumb{
+    background-color: #121212;
+    border-radius:4px;
+}
+
+::placeholder{
+    font-size: rem(16) !important;
+    font-family:$ff-primary !important;
+    color:$clr-black !important;
+}
+
+::selection{
+    color:$clr-white;
+    background-color: $clr-black;
+}
+
+div, ul, ol, li,
+h1, h2, h3, h4, h5, h6, table, pre,
+form, fieldset, input, textarea, p blockquote, th, td{
+    margin: 0;
+    padding: 0;
+}
+
+h1 + p, h2 + p, h3 + p, h4 + p,  h5 + p, h6 + p{
+    margin-top:rem(16);
+}
+
+p + p{
+    margin-top: rem(16);
+}
+
+span + span {
+    margin-top: rem(4);
+}
+
+img{
+    display: block;
+    object-fit:cover;
+}
+
+a{
+    text-decoration: none;
+    color:$clr-black;
+}
+
+textarea{
+    resize: vertical;
+}
+
+address{
+    font-style: normal;
+    font-size: 100%;
+    display: inline;
+    color:$clr-black;
+}
+
+input, textarea, select, button{
+    outline:none;
+    border:none;
+}
+
+button{
+    background: transparent;
+    font-family: $ff-primary;
+}
+
+small{
+    display: flex;
+    font-size: rem(14);
+    line-height: 1.75;
+    margin-top: rem(10);
+}
+
+body{
+    font-weight: normal;
+    font-size: normal;
+    letter-spacing: normal;
+    background-color: $clr-white;
+    font-family: $ff-primary;
+}

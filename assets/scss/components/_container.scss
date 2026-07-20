@@ -1,0 +1,97 @@
+@use "../abstract/functions" as *;
+@use "../abstract/breakpoints" as *;
+
+$full-width:100%;
+
+// ------ Page Container Starts -----------
+.page-container{
+    max-width: none;
+    margin:0 rem(12);
+
+    @include breakpoint-sm{
+        margin: 0 rem(16);
+    }
+    @include breakpoint-md{
+        max-width: calc($full-width * 0.9125);
+        margin: 0 auto;
+    }
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.9175);
+    }
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.9275);
+    }
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.9375);
+    }
+}
+
+
+
+// page container with no margin on left
+.page-container--ml{
+    margin-left:rem(12);
+    // margin-right:0;
+    margin-right:auto;
+    @include breakpoint-md{
+        max-width:calc($full-width*0.938);
+        margin-left:0;
+    }
+  
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.948);
+    }
+
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.958);
+    }
+
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.968);
+    }
+}
+
+
+// page container with no margin on right
+.page-container--mr{
+    margin-right:rem(12);
+    margin-right:0;
+    @include breakpoint-md{
+        max-width:calc($full-width*0.938);
+        margin-left:auto;
+    }
+
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.948);
+    }
+
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.958);
+    }
+
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.968);
+    }
+}
+
+
+.page-container-inner {
+    max-width: none;
+    margin:0 rem(16);
+    @include breakpoint-sm{
+        margin: 0 rem(20);
+    }
+    @include breakpoint-md{
+        max-width: calc($full-width * 0.96);
+        margin: 0 auto;
+    }
+    @include breakpoint-lg{
+        max-width:calc($full-width*0.94);
+    }
+    @include breakpoint-xl{
+        max-width:calc($full-width*0.92);
+    }
+    @include breakpoint-xxl{
+        max-width:calc($full-width*0.91);
+    }
+}

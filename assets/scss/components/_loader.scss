@@ -1,0 +1,30 @@
+@use '../abstract/breakpoints' as *;
+@use '../abstract/colors' as *;
+@use "../abstract/fonts" as *;
+@use '../abstract/functions' as *;
+@use '../abstract/mixins' as *;
+
+.loader-upper{
+    position: fixed;
+    inset:0;
+    width: 100vw;
+    height: 100vh;
+    background: $clr-primary;
+    z-index: 1000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    .loader-wrapper{
+        display: grid;
+        place-items: center;
+    }
+}
+
+
+.loader-inner{
+    @extend .loader-upper;
+    z-index:  999999;
+    background:$clr-black;
+}

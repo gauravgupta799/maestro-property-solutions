@@ -1,0 +1,100 @@
+@use '../abstract/functions' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/fonts' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+
+.video__popup-container{
+    position:fixed;
+    left:0;
+    top:0;
+    z-index: 996;
+    // @include flex-center;
+    display: grid;
+    place-items:center;
+    @include full-dimensions;
+    display: none;
+    &::before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include full-dimensions;
+        background: rgba(0,0,0,0.85);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+    }
+
+    &.show{
+        display:grid;
+    }
+}
+
+
+.video__popup-wrapper{
+    position:relative;
+    width: min(90%, rem(1200));
+    height:rem(260);
+    @include flex-center;
+    background: $clr-black;
+    border:1px solid $clr-white;
+    z-index: 1;
+    @include breakpoint-sm{
+        height:rem(380);
+    }
+    @include breakpoint-md{
+        height:rem(450);
+    }
+    @include breakpoint-lg{
+        height:rem(580);
+    }
+    @include breakpoint-xl{
+        height:rem(600);
+    }
+    &::before{
+        content:"";
+        @include center-through-position;
+        @include radius(50%);
+        z-index: -1;
+        border:2px solid $clr-black;
+        // border-top-color:$clr-black;
+        box-shadow: 0 0 0 1px $clr-black;
+        animation:borderloader infinite 0.8s linear;
+        @keyframes borderloader{
+            0%{border-color:$clr-black; border-top-color:$clr-black; }
+            25%{border-color:$clr-black; border-right-color:$clr-black; }
+            50%{border-color:$clr-black; border-bottom-color:$clr-black; }
+            75%{border-color:$clr-black; border-left-color:$clr-black; }
+        }
+    }
+
+}
+
+.video__popup-close{
+    position:absolute;
+    top:rem(-15);
+    right:rem(-15);
+    @include dimensions(rem(30), rem(30));
+    @include radius(50%);
+    // @include flex-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:$clr-white;
+    color:$clr-black;
+    font-size:rem(18);
+    @include transition(all, 0.25s, ease-out);
+    @include breakpoint-sm{
+        @include dimensions(rem(36), rem(36));
+    }
+    &:hover{
+        cursor:pointer;
+        background:$clr-primary;
+        color:$clr-white;
+    }
+}
+
+.video__popup-iframe-container{
+    @include full-dimensions;
+}

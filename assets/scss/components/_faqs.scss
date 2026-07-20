@@ -1,0 +1,100 @@
+@use '../abstract/functions' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/fonts' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+
+// ============= faq or accordion ===================
+.accordion {
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+}
+
+.accordion-title{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:rem(12);
+    padding-block:em(24);
+    text-transform: initial;
+    color:$clr-primary;
+    @include transition(color, 0.25s, ease);
+    span{
+        position: relative;
+        max-width: 35rem;
+        font-family: $ff-primary;
+        display: inline-block;
+        color:$clr-black;
+        @include breakpoint-xl{
+            max-width: 40rem;
+        }
+        @include breakpoint-xxl{
+            max-width: 45rem;
+        }
+        // &:first-child{
+        //      &::before{
+        //         content:"";
+        //         position: absolute;
+        //         left: -28px;
+        //         top: 10px;
+        //         width: 10px;
+        //         height: 10px;
+        //         background: $clr-primary;
+        //         @include radius(50%);
+        //     }
+        // }
+
+    } 
+
+    svg{
+        @include transition(transform, 0.25s, ease);
+        path{
+            @include transition(fill, 0.3s, ease);
+        }
+    }
+
+    &:hover {
+        color: $clr-secondary;
+        cursor: pointer;
+        span{
+            color:$clr-secondary;
+        }
+        svg path{
+            fill:$clr-secondary;
+        }
+    }
+}
+
+.accordion-content {
+    width: 100%;
+    max-width: 45rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease-in-out;
+    p{
+        padding-bottom:em(28);
+    }
+    p + p{
+        margin-top: 0;
+    }
+}
+
+.accordion-title.is-open{
+    color:$clr-secondary;
+    span{
+        color:$clr-secondary;
+    }
+    svg{
+        transform: rotate(180deg);
+        path{
+            fill:$clr-secondary;
+        }
+    }
+    &.accordion-content{
+        padding-bottom: rem(20);
+    }
+}

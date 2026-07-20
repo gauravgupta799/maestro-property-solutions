@@ -1,0 +1,144 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.footer-link-hover{
+    @include transition(color, 0.35s, ease);
+    &:hover{
+        color:$clr-secondary;
+        cursor: pointer;
+    }
+}
+
+.footer{
+    position: relative;
+    background-color: $clr-primary;
+    &__row{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: rem(64);
+        @include breakpoint-md{
+           grid-template-columns: repeat(3, 1fr);
+           column-gap:rem(80);
+        }
+        @include breakpoint-lg{
+           grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include breakpoint-xl{
+            grid-template-columns: repeat(auto-fit, minmax(rem(80), 1fr));
+            column-gap:rem(32);
+        }
+    }
+    &__logo{
+        display: flex;
+        justify-content: center;
+        img{
+            width: rem(280);
+            @include breakpoint-sm{
+                width: rem(320);
+            }
+            @include breakpoint-md{
+                width: rem(360);
+            }
+            @include breakpoint-lg{
+                width: rem(400);
+            }
+            @include breakpoint-xl{
+                width: auto;
+            }
+        }
+    }
+    &__title{
+        font-size: rem(18);
+        line-height: 2;
+        color:#BBBBBB;
+        font-family: $ff-primary;
+        text-transform: capitalize;
+        @include breakpoint-lg{
+            font-size:rem(20);
+        }
+    }
+    &__list{
+        list-style: none;
+    }
+    &__link{
+        color:$clr-white;
+        font-size: rem(16);
+        line-height: 2;
+        @extend .footer-link-hover;
+    }
+    &__bottom{
+        padding-block:em(32);
+        p{
+            font-size: rem(14);
+            margin-top: 0;
+        }
+    }
+    .social__link{
+        color:$clr-white;
+        display: inline-flex; 
+        font-size: rem(14);
+        @include transition(color, 0.35s, ease);
+        &:hover{
+            color:$clr-secondary;
+        }
+    }
+}
+
+@media only screen and (min-width:em(1400)){
+    .footer__row{
+        column-gap:rem(16);
+    }
+}
+
+.footer-link{
+    @extend .footer-link-hover;
+}
+
+.wave-left{
+    position: absolute;
+    top: 0;
+    margin-top: -32px;
+    z-index: -1;
+    @include breakpoint-sm{
+        margin-top: -48px;
+    }
+    @include breakpoint-md{
+        margin-top: -64px;
+    }
+    @include breakpoint-lg{
+        margin-top: -80px;
+    }
+    @include breakpoint-xl{
+        margin-top: -96px;
+    }
+}
+
+.wave-right{
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: -1;
+
+    &--home{
+        left: unset;
+        bottom: -32px;
+        right: 0;
+    }
+}
+
+a[href="https://yourhustler.com"]{
+    text-decoration: underline;
+    text-decoration-color: $clr-black;
+    -moz-text-decoration-color: $clr-black;
+    @include transition(all, 0.25s, ease);
+    &:hover{
+        color:$clr-primary;
+        text-decoration-color: $clr-primary;
+        -moz-text-decoration-color: $clr-primary;
+    }
+}

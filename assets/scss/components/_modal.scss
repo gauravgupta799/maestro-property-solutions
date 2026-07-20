@@ -1,0 +1,125 @@
+@use '../abstract/functions' as *;
+@use '../abstract/colors' as *;
+@use '../abstract/fonts' as *;
+@use '../abstract/mixins' as *;
+@use '../abstract/breakpoints' as *;
+
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  &.show{
+    display: flex;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+    background: $clr-white;
+    border-radius: 10px;
+    max-height: 90vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    animation: popupIn 0.4s ease;
+    padding: em(20);
+    width: min(96%, 968px);
+}
+
+.modal-header{
+    display: flex;
+    align-items: center;
+    gap:rem(16);
+    margin-bottom: rem(20);
+    @include breakpoint-sm{
+        gap:rem(20);
+    }
+    @include breakpoint-md{
+        gap:rem(24);
+    }
+}
+
+.modal-img{
+    border-radius:3px;
+}
+
+#modalTitle{
+    font-size: rem(14);
+    color:$clr-gray-darker;
+    margin-top: 2px;
+    @include breakpoint-sm{
+        font-size: rem(16);
+    }
+    @include breakpoint-md{
+        font-size: rem(18);
+    }
+}
+
+/* Scrollable inner content */
+.modal-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* for smooth iOS scroll */
+  pointer-events: auto;
+  touch-action: auto;
+  margin-top: rem(16);
+  padding-right: em(16);
+  flex: 1;
+  min-height: 0;
+  color: $clr-black;
+  overscroll-behavior: contain;
+   scroll-behavior: auto;
+  p{
+    color: $clr-black;
+    &:not(:last-child){
+        margin-bottom: rem(24);
+    }
+  }
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size:rem(48);
+  color: $clr-primary;
+  &:hover{
+    cursor: pointer;
+    color:$clr-secondary;
+  }
+}
+
+/* Animation */
+@keyframes popupIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar Styling */
+.modal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}

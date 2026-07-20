@@ -1,0 +1,222 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+.header{
+    background-color: $clr-white;
+    background: transparent;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    transform:translateY(0);
+    @include transition(transform, 0.25s, ease);
+    padding-block:em(16);
+    &__container,   
+    &__left{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:rem(32);
+        @include breakpoint-xl{
+            gap:rem(48);
+        }
+        @include breakpoint-xxl{
+            gap:rem(56);
+        }
+        @include breakpoint-xxxl{
+            gap:rem(64);
+        }
+    }
+
+    &__mobile-right{
+        display: flex;
+        align-items: center;
+        gap:rem(24);
+        @include breakpoint-xl{
+            gap:rem(28);
+        }
+        @include breakpoint-xxl{
+            gap:rem(32);
+        }
+    }
+
+    &__btnWrapper{
+        display: flex;
+        align-items: center;
+        gap:rem(16);
+        @include breakpoint-xl{
+            gap:rem(20);
+        }
+        @include breakpoint-xxl{
+            gap:rem(24);
+        }
+        @include breakpoint-xxxl{
+            gap:rem(28);
+        }
+    }
+    &__right{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:rem(32);
+        @include breakpoint-xxl{
+            gap:rem(48);
+        }
+        @include breakpoint-xxxl{
+            gap:rem(56);
+        }
+    }
+
+    // &__logo{
+    //     position: relative;
+    //     img{
+    //         height: rem(40);
+    //         @include breakpoint-sm{
+    //             height: rem(44);
+    //         }
+    //         @include breakpoint-md{
+    //             height: auto;
+    //         }
+    //     }
+    // }
+
+    &__mobile{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &--transparent{
+        .navbar__link{
+            color:$clr-white;
+        }
+        svg.chevron-icon {
+            path{
+                fill:$clr-white;
+            }
+        }
+        .menu-icon{
+            span{
+                background-color: $clr-white;
+            }
+        }
+    }
+    
+    &.sticky{
+        box-shadow: 0 0px 4px rgb(150 147 147 / 50%);
+        background-color: $clr-white;
+
+        .navbar__link{
+            color:$clr-black;
+        }
+        .logo-green{
+            opacity: 1;
+        }
+
+        .logo-white{
+            z-index: -1;
+        }
+
+        svg.chevron-icon{
+            path{
+                fill:$clr-black;
+            }
+        }
+        .menu-icon{
+            span{
+                background-color: $clr-black;
+            }
+        }
+    }
+
+    &.hidden{
+        transform: translateY(-160px);
+    }
+}
+
+.menu-toggle {
+    position: relative;
+    z-index:10;
+    display: flex;
+    align-items: center;
+    gap:rem(10);
+    cursor: pointer;
+    user-select: none;
+}
+
+.menu-icon {
+    position: relative;
+    width: rem(34);
+    height:rem(8);
+    @include transition(width, 0.35s, ease);
+
+    span {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background:$clr-black;
+        margin-top: 0;
+        @include transition(all, 0.25s, ease);
+        &:first-child {
+            top: 0;
+            left: 8px;
+            width: 75%;
+        }
+        &:last-child {
+            bottom: 0;
+        }
+    }
+}
+
+/* Active State */
+.menu-toggle.active {
+    .menu-icon{
+        width: 26px;
+        span{
+            background-color: $clr-white;
+           &:first-child {
+                transform: rotate(45deg) translate(-5px, 5px);
+                width: 100%;
+            }
+            &:last-child {
+                transform: rotate(-45deg) translate(4px, -4px);
+            }
+        }
+    }
+}
+
+
+.social{
+    &__list{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        // flex-direction: column;
+        gap:rem(8);
+        @include breakpoint-lg{
+            gap:rem(10);
+        }
+        @include breakpoint-xl{
+            gap:rem(12);
+        }
+    }
+    &__link{
+        font-size: rem(16);
+        display: flex;
+        align-items: center;
+        gap:rem(8);
+        color:$clr-white;  
+        @include transition(all, 0.3s, ease);
+        &:hover{
+            color:$clr-primary;
+        }
+    }
+}
+
+.mail-link{
+    @extend .social__link;
+}

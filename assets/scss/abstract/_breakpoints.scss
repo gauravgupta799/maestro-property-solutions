@@ -1,0 +1,73 @@
+@use "./functions" as *;
+
+// Breakpoint values
+$breakpoints: (
+  "xxs": em(348), // 2x Small (Extra-small mobile)
+  "xs": em(480), // Extra small (Small mobile)
+  "sm": em(576), // Small (Mobile)
+  "md": em(768), // Medium (Tablet)
+  "lg": em(992), // Large (Laptop)
+  "xl": em(1200), // Extra large (Desktop)
+  "xxl": em(1600), // 2x large (Large desktop)
+  "xxxl": em(1920) // 3x large (Extra-large desktop)
+);
+
+// Indiviual Breakpoint Mixins
+@mixin breakpoint-xxs{
+  @include breakpoint(xxs){
+    @content;
+  }
+}
+
+@mixin breakpoint-xs{
+  @include breakpoint(xs){
+    @content;
+  }
+}
+
+@mixin breakpoint-sm{
+  @include breakpoint(sm){
+    @content;
+  }
+}
+
+@mixin breakpoint-md{
+  @include breakpoint(md){
+    @content;
+  }
+}
+
+@mixin breakpoint-lg{
+  @include breakpoint(lg){
+    @content;
+  }
+}
+
+@mixin breakpoint-xl{
+  @include breakpoint(xl){
+    @content;
+  }
+}
+
+@mixin breakpoint-xxl{
+  @include breakpoint(xxl){
+    @content;
+  }
+}
+
+@mixin breakpoint-xxxl{
+  @include breakpoint(xxxl){
+    @content;
+  }
+}
+
+// Generate responsive mixins
+@mixin breakpoint($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media only screen and (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  }@else {
+    @error "Unknown breakpoint: #{$size}";
+  }
+}
