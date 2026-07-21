@@ -20956,9 +20956,21 @@ a[href="https://yourhustler.com"]:hover {
 }
 
 .property-solutions__header {
+  position: relative;
   padding: 2rem 2rem;
   background-color: #072945;
   border-radius: 12px;
+}
+.property-solutions__header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background-color: #C8963C;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 .property-solutions__content {
   background-color: #EDEDED;
