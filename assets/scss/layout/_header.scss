@@ -63,26 +63,7 @@
         align-items: center;
         justify-content: space-between;
         gap:rem(32);
-        @include breakpoint-xxl{
-            gap:rem(48);
-        }
-        @include breakpoint-xxxl{
-            gap:rem(56);
-        }
     }
-
-    // &__logo{
-    //     position: relative;
-    //     img{
-    //         height: rem(40);
-    //         @include breakpoint-sm{
-    //             height: rem(44);
-    //         }
-    //         @include breakpoint-md{
-    //             height: auto;
-    //         }
-    //     }
-    // }
 
     &__mobile{
         display: flex;

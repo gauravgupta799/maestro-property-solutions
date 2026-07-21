@@ -55,15 +55,27 @@
     &__title{
         font-size: rem(18);
         line-height: 2;
-        color:#BBBBBB;
+        color:#fff;
         font-family: $ff-primary;
         text-transform: capitalize;
+        opacity: 0.3;
         @include breakpoint-lg{
-            font-size:rem(20);
+            font-size: rem(20);
         }
     }
     &__list{
         list-style: none;
+
+        &--flex{
+            list-style:disc;
+            display: flex;
+            flex-wrap:wrap;
+            align-items: center;
+            justify-content: center;
+            column-gap:64px;
+            row-gap: 16px;
+            color:#fff;
+        }
     }
     &__link{
         color:$clr-white;

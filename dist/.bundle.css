@@ -20350,16 +20350,6 @@ input[type=checkbox] {
   justify-content: space-between;
   gap: 2rem;
 }
-@media only screen and (min-width: 100em) {
-  .header__right {
-    gap: 3rem;
-  }
-}
-@media only screen and (min-width: 120em) {
-  .header__right {
-    gap: 3.5rem;
-  }
-}
 .header__mobile {
   display: flex;
   align-items: center;
@@ -20541,9 +20531,10 @@ input[type=checkbox] {
 .footer__title {
   font-size: 1.125rem;
   line-height: 2;
-  color: #BBBBBB;
+  color: #fff;
   font-family: "Helvetica-Regular", sans-serif;
   text-transform: capitalize;
+  opacity: 0.3;
 }
 @media only screen and (min-width: 62em) {
   .footer__title {
@@ -20552,6 +20543,17 @@ input[type=checkbox] {
 }
 .footer__list {
   list-style: none;
+}
+.footer__list--flex {
+  list-style: disc;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 64px;
+       column-gap: 64px;
+  row-gap: 16px;
+  color: #fff;
 }
 .footer__link {
   color: #FFFFFF;
@@ -20951,6 +20953,60 @@ a[href="https://yourhustler.com"]:hover {
 }
 .process__list {
   color: #FFFFFF;
+}
+
+.property-solutions__header {
+  padding: 2rem 2rem;
+  background-color: #072945;
+  border-radius: 12px;
+}
+.property-solutions__content {
+  background-color: #EDEDED;
+  padding: 2.25rem 2rem;
+  border-radius: 12px;
+  min-height: 242px;
+}
+@media only screen and (min-width: 36em) {
+  .property-solutions__content {
+    padding-inline: 2.25rem;
+  }
+}
+@media only screen and (min-width: 48em) {
+  .property-solutions__content {
+    padding-inline: 2.5rem;
+  }
+}
+@media only screen and (min-width: 62em) {
+  .property-solutions__content {
+    padding-inline: 2.75rem;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .property-solutions__content {
+    padding-inline: 3rem;
+  }
+}
+@media only screen and (min-width: 100em) {
+  .property-solutions__content {
+    padding-inline: 3.25rem;
+  }
+}
+@media only screen and (min-width: 120em) {
+  .property-solutions__content {
+    padding-inline: 3.5rem;
+  }
+}
+
+.breadcrum {
+  position: relative;
+}
+.breadcrum span {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  background-color: #C8963C;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .process-item {

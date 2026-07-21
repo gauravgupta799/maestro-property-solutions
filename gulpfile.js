@@ -71,19 +71,6 @@ function browserSyncReload(callback){
     callback();
 }
 
-
-// watch("assets/css/**/*.scss", scssTask);
-// watch("assets/js/**/*.js", jsTask);
-
-// Watch Tasks
-// function watchTask(){
-//     watch(
-//         ["assets/js/**/*.js", "assets/scss/**/*.scss"], 
-//         series(scssTask, scssTaskMinified, jsTask, browserSyncReload)
-//     );
-//     watch("*.html").on("change", browserSyncReload);
-// }
-
 function watchTask(){
     watch("*.html", browserSyncReload);
     watch(["assets/scss/**/*.scss", "assets/js/main.js"], 
@@ -92,34 +79,7 @@ function watchTask(){
 }
 
 // Export Tasks
-
 exports.default = series(
     scssTask, scssTaskMinified, 
     jsTask, browserSyncServe, watchTask 
 );
-
-
-
-
-
-
-// const cleanCSS = require("gulp-clean-css");
-// const uglify = require("gulp-uglify");
-// const sourcemaps = require("gulp-sourcemaps");
-// const del = require("del");
-// const imagemin = require("gulp-imagemin");
-// const pngquant = require("pngquant");
-// const cache = require("gulp-cache");
-// const changed = require("gulp-changed");
-// const plumber = require("gulp-plumber");
-// const postcss = require("gulp-postcss");
-// const cssnano = require("cssnano");
-// const babel = require("gulp-babel");
-// const replace = require("gulp-replace");
-// const fs = require("fs");
-// const path = require("path");
-// const gulpif = require("gulp-if");
-// const gutil = require("gulp-util");
-// const gulp = require("gulp");
-// const eslint = require("gulp-eslint");
-// const eslintFormatter = require("eslint-formatter-pretty");
