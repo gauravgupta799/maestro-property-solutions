@@ -203,24 +203,6 @@
     border-top:1px solid $clr-gray-lighter;
 }
 
-.link-hover{
-    @include transition(all, 0.35s, ease);
-    svg{
-        path{
-            @include transition(all, 0.35s, ease);
-        }
-    }
-    &:hover{
-        cursor: pointer;
-        color:$clr-secondary;
-        svg{
-            path{
-                fill:$clr-secondary;
-                stroke:$clr-secondary;
-            }
-        }
-    }
-}
 
 .img-hover{
     position: relative;
