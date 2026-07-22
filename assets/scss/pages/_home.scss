@@ -38,7 +38,7 @@ $height: calc(100vh - 84px);
         justify-content: center;
         height: 100%;
         margin-inline:auto;
-        max-width: 42ch;
+        max-width: 50ch;
         padding-inline:16px;
     }
 }
@@ -298,14 +298,12 @@ $height: calc(100vh - 84px);
         background-image: url("../../../assets/images/steps-bg.png");
         background-color: $clr-primary;
     }
-
     &__left{
         @include breakpoint-md{
             max-width: 38rem;
             // margin-inline:auto;
         }
     }
-
     &__tag-box{
         padding:5px 16px;
         background-color: $clr-white;
@@ -320,73 +318,28 @@ $height: calc(100vh - 84px);
     }
 }
 
-// Comming-Soon Page
-.property-solutions{
-    &__header{
-        position: relative;
-        padding:rem(32) rem(32);
-        background-color: $clr-primary;
-        border-radius:12px;
-        &::before{
-            content:"";
-            position: absolute;
-            top:0;
-            left:0;
-            width:8px;
-            height: 100%;
-            background-color: $clr-secondary;
-            border-top-left-radius: 12px;
-            border-bottom-left-radius: 12px;
-        }
-    }
-    &__content{
-        background-color:#EDEDED;
-        padding:rem(36) rem(32);
-        border-radius:12px;
-        min-height: 242px;
-        @include breakpoint-sm{
-            padding-inline:rem(36);   
-        }
-        @include breakpoint-md{
-            padding-inline:rem(40);   
-        }
-        @include breakpoint-lg{
-            padding-inline:rem(44);   
-        }
-        @include breakpoint-xl{
-            padding-inline:rem(48);   
-        }
-        @include breakpoint-xxl{
-            padding-inline:rem(52);   
-        }
-        @include breakpoint-xxxl{
-            padding-inline:rem(56);   
-        }
-    }
-}
-
-.breadcrum {
-    position: relative;
-    span{
-        display:inline-flex;
-        width: 12px;
-        height: 12px;
-        background-color:#C8963C;
-        border-radius:50%;
-        margin-right: 10px;        
-    }
-}
-
-// ======
-
 .process-item {
-    display: grid;
-    grid-template-columns:rem(60) 1fr;
-    column-gap:rem(40);
     position: relative;
-
+    display: grid;
+    grid-template-columns:rem(40) 1fr;
+    column-gap:rem(18);
     &:not(:last-child) {
-        padding-bottom:rem(32);
+        padding-bottom:rem(40);
+        @include breakpoint-sm{
+            padding-bottom:rem(32);
+        }
+    }
+
+    @include breakpoint-sm{
+        grid-template-columns:rem(50) 1fr;
+        column-gap:rem(24);
+    }
+    @include breakpoint-md{
+        grid-template-columns:rem(60) 1fr;
+        column-gap:rem(32);
+    }
+    @include breakpoint-lg{
+        column-gap:rem(40);
     }
 
     .number {
@@ -404,8 +357,8 @@ $height: calc(100vh - 84px);
         &::after {
             content: "";
             position: absolute;
-            top: 36px;
-            bottom: -24px;
+            top:30px;
+            bottom:-40px;
             width: 2px;
             background-image: linear-gradient(
                 to bottom,
@@ -416,6 +369,11 @@ $height: calc(100vh - 84px);
             background-position: left;
             background-size: 2px 12px;
             background-repeat: repeat-y;
+
+            @include breakpoint-sm{
+                top: 36px;
+                bottom: -24px;
+            }
         }
     }
 
@@ -426,8 +384,17 @@ $height: calc(100vh - 84px);
     }
 
     .content {
-        padding-bottom:rem(32);
+        padding-bottom:rem(20);
         border-bottom: 1px solid rgba(255,255,255,.15);
+        @include breakpoint-sm{
+            padding-bottom:rem(24);
+        }
+        @include breakpoint-md{
+            padding-bottom:rem(28);
+        }
+        @include breakpoint-lg{
+            padding-bottom:rem(32);
+        }
         h5 {
             color: $clr-secondary;
             @include transition(all, 0.35s, ease);
@@ -453,117 +420,6 @@ $height: calc(100vh - 84px);
         }
         .number span {
             color:$clr-secondary;
-        }
-    }
-}
-
-/* Tablet */
-
-@media (max-width:768px){
-    .process-section{
-        padding:70px 20px;
-    }
-    .process-item{
-        grid-template-columns:50px 1fr;
-        column-gap:25px;
-    }
-}
-
-/* Mobile */
-
-@media(max-width:576px){
-    .process-section{
-        padding:50px 18px;
-    }
-    .process-item{
-        grid-template-columns:40px 1fr;
-        column-gap:18px;
-        &:not(:last-child){
-            padding-bottom:40px;
-        }
-
-        .number{
-            span{
-                font-size:16px;
-            }
-            &::after{
-                top:30px;
-                bottom:-40px;
-            }
-        }
-        .content{
-            padding-bottom:20px;
-        }
-    }
-}
-
-
-
-
-
-
-
-// ===========
-.about-us{
-    position: relative;
-    z-index: 1;
-}
-
-.blog-tag{
-    padding:em(8) em(16);
-    @include radius(8px);
-    border:1px solid $clr-gray-darker;
-}
-
-.cta{
-    &__container{
-        margin-inline:0;
-        @include breakpoint-md{
-            margin-inline:auto;
-        }
-    }
-    &__inner{
-        position: relative;
-        min-height: rem(420);
-        @include breakpoint-sm{
-           min-height: rem(480);  
-        }
-        @include breakpoint-md{
-           min-height: rem(540);  
-        }
-        @include breakpoint-lg{
-           min-height: rem(600);  
-        }
-        @include breakpoint-xl{
-           min-height: rem(660);  
-        }
-    }
-    &__content-wrapper{
-        position: absolute;
-        bottom: rem(64);
-        left:rem(12);
-        @include breakpoint-sm{
-            bottom: rem(72);
-            left:rem(32);
-        }
-        @include breakpoint-md{
-            bottom: rem(80);
-            left:rem(48);
-        }
-        @include breakpoint-lg{
-            bottom: rem(96);
-            left:rem(64);
-        }
-        @include breakpoint-xl{
-            bottom: rem(112);
-            left:rem(80);
-        }
-        @include breakpoint-xxl{
-            bottom: rem(144);
-            left:rem(96);
-        }
-        @include breakpoint-xxxl{
-            left:rem(112);
         }
     }
 }

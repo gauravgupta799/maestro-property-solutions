@@ -1126,7 +1126,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, ul, ol, body {
   font-size: 1rem;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: "Roboto-Regular", sans-serif;
@@ -1135,13 +1135,7 @@ p, ul, ol, body {
 @media screen and (min-width: 36em) {
   p, ul, ol, body {
     font-size: 1rem;
-    line-height: 1.25rem;
-  }
-}
-@media screen and (min-width: 48em) {
-  p, ul, ol, body {
-    font-size: 1rem;
-    line-height: 1.25rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -20664,7 +20658,7 @@ a[href="https://yourhustler.com"]:hover {
   justify-content: center;
   height: 100%;
   margin-inline: auto;
-  max-width: 42ch;
+  max-width: 50ch;
   padding-inline: 16px;
 }
 
@@ -20955,81 +20949,40 @@ a[href="https://yourhustler.com"]:hover {
   color: #FFFFFF;
 }
 
-.property-solutions__header {
+.process-item {
   position: relative;
-  padding: 2rem 2rem;
-  background-color: #072945;
-  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  -moz-column-gap: 1.125rem;
+       column-gap: 1.125rem;
 }
-.property-solutions__header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 100%;
-  background-color: #C8963C;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-.property-solutions__content {
-  background-color: #EDEDED;
-  padding: 2.25rem 2rem;
-  border-radius: 12px;
-  min-height: 242px;
+.process-item:not(:last-child) {
+  padding-bottom: 2.5rem;
 }
 @media only screen and (min-width: 36em) {
-  .property-solutions__content {
-    padding-inline: 2.25rem;
+  .process-item:not(:last-child) {
+    padding-bottom: 2rem;
+  }
+}
+@media only screen and (min-width: 36em) {
+  .process-item {
+    grid-template-columns: 3.125rem 1fr;
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
   }
 }
 @media only screen and (min-width: 48em) {
-  .property-solutions__content {
-    padding-inline: 2.5rem;
+  .process-item {
+    grid-template-columns: 3.75rem 1fr;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
   }
 }
 @media only screen and (min-width: 62em) {
-  .property-solutions__content {
-    padding-inline: 2.75rem;
+  .process-item {
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
   }
-}
-@media only screen and (min-width: 75em) {
-  .property-solutions__content {
-    padding-inline: 3rem;
-  }
-}
-@media only screen and (min-width: 100em) {
-  .property-solutions__content {
-    padding-inline: 3.25rem;
-  }
-}
-@media only screen and (min-width: 120em) {
-  .property-solutions__content {
-    padding-inline: 3.5rem;
-  }
-}
-
-.breadcrum {
-  position: relative;
-}
-.breadcrum span {
-  display: inline-flex;
-  width: 12px;
-  height: 12px;
-  background-color: #C8963C;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.process-item {
-  display: grid;
-  grid-template-columns: 3.75rem 1fr;
-  -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
-  position: relative;
-}
-.process-item:not(:last-child) {
-  padding-bottom: 2rem;
 }
 .process-item .number {
   position: relative;
@@ -21045,20 +20998,41 @@ a[href="https://yourhustler.com"]:hover {
 .process-item .number::after {
   content: "";
   position: absolute;
-  top: 36px;
-  bottom: -24px;
+  top: 30px;
+  bottom: -40px;
   width: 2px;
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 45%, transparent 0%);
   background-position: left;
   background-size: 2px 12px;
   background-repeat: repeat-y;
 }
+@media only screen and (min-width: 36em) {
+  .process-item .number::after {
+    top: 36px;
+    bottom: -24px;
+  }
+}
 .process-item:last-child .number::after {
   display: none;
 }
 .process-item .content {
-  padding-bottom: 2rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+@media only screen and (min-width: 36em) {
+  .process-item .content {
+    padding-bottom: 1.5rem;
+  }
+}
+@media only screen and (min-width: 48em) {
+  .process-item .content {
+    padding-bottom: 1.75rem;
+  }
+}
+@media only screen and (min-width: 62em) {
+  .process-item .content {
+    padding-bottom: 2rem;
+  }
 }
 .process-item .content h5 {
   color: #C8963C;
@@ -21078,125 +21052,6 @@ a[href="https://yourhustler.com"]:hover {
 }
 .process-item:hover .number span {
   color: #C8963C;
-}
-
-/* Tablet */
-@media (max-width: 768px) {
-  .process-section {
-    padding: 70px 20px;
-  }
-  .process-item {
-    grid-template-columns: 50px 1fr;
-    -moz-column-gap: 25px;
-         column-gap: 25px;
-  }
-}
-/* Mobile */
-@media (max-width: 576px) {
-  .process-section {
-    padding: 50px 18px;
-  }
-  .process-item {
-    grid-template-columns: 40px 1fr;
-    -moz-column-gap: 18px;
-         column-gap: 18px;
-  }
-  .process-item:not(:last-child) {
-    padding-bottom: 40px;
-  }
-  .process-item .number span {
-    font-size: 16px;
-  }
-  .process-item .number::after {
-    top: 30px;
-    bottom: -40px;
-  }
-  .process-item .content {
-    padding-bottom: 20px;
-  }
-}
-.about-us {
-  position: relative;
-  z-index: 1;
-}
-
-.blog-tag {
-  padding: 0.5em 1em;
-  border-radius: 8px;
-  border: 1px solid #808080;
-}
-
-.cta__container {
-  margin-inline: 0;
-}
-@media only screen and (min-width: 48em) {
-  .cta__container {
-    margin-inline: auto;
-  }
-}
-.cta__inner {
-  position: relative;
-  min-height: 26.25rem;
-}
-@media only screen and (min-width: 36em) {
-  .cta__inner {
-    min-height: 30rem;
-  }
-}
-@media only screen and (min-width: 48em) {
-  .cta__inner {
-    min-height: 33.75rem;
-  }
-}
-@media only screen and (min-width: 62em) {
-  .cta__inner {
-    min-height: 37.5rem;
-  }
-}
-@media only screen and (min-width: 75em) {
-  .cta__inner {
-    min-height: 41.25rem;
-  }
-}
-.cta__content-wrapper {
-  position: absolute;
-  bottom: 4rem;
-  left: 0.75rem;
-}
-@media only screen and (min-width: 36em) {
-  .cta__content-wrapper {
-    bottom: 4.5rem;
-    left: 2rem;
-  }
-}
-@media only screen and (min-width: 48em) {
-  .cta__content-wrapper {
-    bottom: 5rem;
-    left: 3rem;
-  }
-}
-@media only screen and (min-width: 62em) {
-  .cta__content-wrapper {
-    bottom: 6rem;
-    left: 4rem;
-  }
-}
-@media only screen and (min-width: 75em) {
-  .cta__content-wrapper {
-    bottom: 7rem;
-    left: 5rem;
-  }
-}
-@media only screen and (min-width: 100em) {
-  .cta__content-wrapper {
-    bottom: 9rem;
-    left: 6rem;
-  }
-}
-@media only screen and (min-width: 120em) {
-  .cta__content-wrapper {
-    left: 7rem;
-  }
 }
 
 .contact-list__title {
@@ -21572,5 +21427,70 @@ a[href="https://yourhustler.com"]:hover {
     transform: translateY(0);
     opacity: 1;
   }
+}
+.property-solutions__header {
+  position: relative;
+  padding: 2rem 2rem;
+  background-color: #072945;
+  border-radius: 12px;
+}
+.property-solutions__header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background-color: #C8963C;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.property-solutions__content {
+  background-color: #EDEDED;
+  padding: 2.25rem 2rem;
+  border-radius: 12px;
+  min-height: 242px;
+}
+@media only screen and (min-width: 36em) {
+  .property-solutions__content {
+    padding-inline: 2.25rem;
+  }
+}
+@media only screen and (min-width: 48em) {
+  .property-solutions__content {
+    padding-inline: 2.5rem;
+  }
+}
+@media only screen and (min-width: 62em) {
+  .property-solutions__content {
+    padding-inline: 2.75rem;
+  }
+}
+@media only screen and (min-width: 75em) {
+  .property-solutions__content {
+    padding-inline: 3rem;
+  }
+}
+@media only screen and (min-width: 100em) {
+  .property-solutions__content {
+    padding-inline: 3.25rem;
+  }
+}
+@media only screen and (min-width: 120em) {
+  .property-solutions__content {
+    padding-inline: 3.5rem;
+  }
+}
+
+.breadcrum {
+  position: relative;
+}
+.breadcrum span {
+  display: inline-flex;
+  width: 12px;
+  height: 12px;
+  background-color: #C8963C;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=.bundle.css.map */

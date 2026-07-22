@@ -1,0 +1,62 @@
+@use "../abstract/breakpoints" as *;
+@use "../abstract/colors" as *;
+@use "../abstract/fonts" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/mixins" as *;
+
+
+.property-solutions{
+    &__header{
+        position: relative;
+        padding:rem(32) rem(32);
+        background-color: $clr-primary;
+        border-radius:12px;
+        &::before{
+            content:"";
+            position: absolute;
+            top:0;
+            left:0;
+            width:8px;
+            height: 100%;
+            background-color: $clr-secondary;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+    }
+    &__content{
+        background-color:#EDEDED;
+        padding:rem(36) rem(32);
+        border-radius:12px;
+        min-height: 242px;
+        @include breakpoint-sm{
+            padding-inline:rem(36);   
+        }
+        @include breakpoint-md{
+            padding-inline:rem(40);   
+        }
+        @include breakpoint-lg{
+            padding-inline:rem(44);   
+        }
+        @include breakpoint-xl{
+            padding-inline:rem(48);   
+        }
+        @include breakpoint-xxl{
+            padding-inline:rem(52);   
+        }
+        @include breakpoint-xxxl{
+            padding-inline:rem(56);   
+        }
+    }
+}
+
+.breadcrum {
+    position: relative;
+    span{
+        display:inline-flex;
+        width: 12px;
+        height: 12px;
+        background-color:#C8963C;
+        border-radius:50%;
+        margin-right: 10px;        
+    }
+}

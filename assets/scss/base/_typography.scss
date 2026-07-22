@@ -16,9 +16,8 @@ $breakpoints: (
 
 // Null is mobile, No breakpoints
 $p-sizes:(
-    null:(rem(16), rem(20)),
-    sm:(rem(16), rem(20)),
-    md:(rem(16), rem(20)),
+    null:(rem(16), rem(24)),
+    sm:(rem(16), rem(24)),
 );
 
 
